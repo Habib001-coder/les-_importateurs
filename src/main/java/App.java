@@ -23,7 +23,7 @@ public class App {
             return new ModelAndView(model, "logs-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/login-new", (request, response) -> {
+        post("/login/new", (request, response) -> {
             Map<String , Object> model= new HashMap<>();
             String name = request.queryParams("name");
             String email = request.queryParams("email");
