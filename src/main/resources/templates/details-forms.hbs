@@ -1,0 +1,20 @@
+{{#partial "content"}}
+    <div class="container">
+    <h1>ENTER SHIPPING DETAILS</h1>
+
+        <div class="form">
+            <form action='/details/new' method="post">
+                <input type="text" name="flightNumber" class="form-control" required>
+                <input type="number" name="arrivalTime" class="form-control" reequired>
+                <input type="number" name="customDuty" class="form-control" reequired>
+                <input type="number" name="containerNumber" class="form-control" reequired>
+
+                <button type="submit" class="btn btn-primary">SUBMIT</button>
+            </form>
+        </div>
+
+    </div>
+
+
+    {{/partial}}
+{{>layout.hbs}}
