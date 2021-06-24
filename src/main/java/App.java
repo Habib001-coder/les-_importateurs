@@ -63,8 +63,21 @@ public class App {
         post("/reviews",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             String name=request.queryParams("name");
-            String comment=request.queryParams("comment")
-        })
+            String comment=request.queryParams("comment");
+            Reviews newReviews = new Reviews(name,comment);
+            model.put("newReviews",newReviews);
+            return new ModelAndView(model, "reviews-forms.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //display reviews
+        get("/reviews/new",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            String name=request.queryParams("name");
+            String comment=request.queryParams("comment");
+            Reviews newReviews = new Reviews(name,comment);
+            model.put("newReviews",newReviews);
+            return new ModelAndView(model, "reviews-forms.hbs");
+        }, new HandlebarsTemplateEngine());
 
     }
 }
