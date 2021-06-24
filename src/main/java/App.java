@@ -35,5 +35,28 @@ public class App {
           //  login.save();
             return new ModelAndView(model,"logs-form.hbs");
         },new HandlebarsTemplateEngine());
+
+
+
+
+
+
+        get("/goods/new",(request, response) -> {
+            Map<String,Object> model=new HashMap<String, Object>();
+            return new ModelAndView(model,"goods-views");
+        },new HandlebarsTemplateEngine());
+
+        post("/create/goods/new",(request, response) -> {
+            Map<String,Object> model=new HashMap<String, Object>();
+            String name=request.queryParams("name");
+            String serial=request.queryParams("serial");
+            String quantity=request.queryParams("quantity");
+            String origin=request.queryParams("origin");
+            GoodsDetails goodsDetails=new GoodsDetails(name, serial,quantity,origin);
+//            ranger.save();
+            return new ModelAndView(model,"goods-forms.hbs");
+        },new HandlebarsTemplateEngine());
+
     }
+
 }
