@@ -1,0 +1,14 @@
+{{#partial "content"}}
+    <div class="container">
+        <h1>View your Order Here!!</h1>
+        <div class="oder">
+            {{#each shippingDetail}}
+                   <p><strong>Flight-Number: {{flightNumber}}</strong></p>
+                   <p><strong>Arrival-Time: {{arrivalTime}}</strong></p>
+                   <P><strong>Custom-Duty: {{customDuty}}</strong></P>
+                   <p><strong>Container-Number: {{containerNumber}}</strong></p>
+                {{/each}}
+        </div>
+    </div>
+    {{/partial}}
+{{>layout.hbs}}
