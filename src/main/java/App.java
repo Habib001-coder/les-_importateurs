@@ -37,7 +37,7 @@ public class App {
             Integer containerNumber=Integer.parseInt(request.queryParams("containerNumber"));
             ShippingDetails shipDetails = new ShippingDetails(flightNumber,arrivalTime,customDuty,containerNumber);
             model.put("shipDetails",shipDetails);
-            return new ModelAndView(model, "details-form.hbs");
+            return new ModelAndView(model, "details-forms.hbs");
         }, new HandlebarsTemplateEngine());
 
 
@@ -50,7 +50,21 @@ public class App {
             Integer containerNumber=Integer.parseInt(request.queryParams("containerNumber"));
             ShippingDetails shipDetails = new ShippingDetails(flightNumber,arrivalTime,customDuty,containerNumber);
             model.put("shipDetails",shipDetails);
-            return new ModelAndView(model, "details-view.hbs");
+            return new ModelAndView(model, "details-views.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //display reviews form
+        get("/reviews-forms", (request, response)->{
+            Map<String, Object> model=new HashMap<>();
+            return new ModelAndView(model, "reviews-forms.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //process reviews form
+        post("/reviews",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            String name=request.queryParams("name");
+            String comment=request.queryParams("comment")
+        })
+
     }
 }
