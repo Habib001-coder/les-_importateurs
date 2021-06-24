@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd01cd60-e961-4dcb-8dbe-4a992f6fc934" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Reviews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Reviews.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/details-forms.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/details-forms.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/details-views.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/details-views.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviews-forms.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviews-forms.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
