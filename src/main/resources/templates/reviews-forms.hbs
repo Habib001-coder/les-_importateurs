@@ -1,0 +1,26 @@
+{{#partial "content"}}
+
+    <div class="container">
+    <h1>We value your feedback.</h1>
+    <h2>Make a review here!</h2>
+
+    <div class="form">
+        <form>
+            <input type="text" name="name" placeholder="Name" class="form-control">
+            <input type="text" name="comment" placeholder="Comment..." class="form-control">
+            <button type="submit" class="btn btn-info">Comment</button>
+        </form>
+    </div>
+    </div>
+
+    <h1>Reviews</h1>
+    {{#each review}}
+        <div class="reviews">
+            <h3>{{name}}</h3>
+            <p>{{comment}}</p>
+        </div>
+        {{/each}}
+
+
+    {{/partial}}
+{{>layout.hbs}}
