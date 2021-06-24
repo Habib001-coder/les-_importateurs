@@ -9,6 +9,9 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
+        Reviews.setUpReview1();
+        Reviews.setUpReview2();
+        Reviews.setUpReview3();
         // Map<String,Object> model = new HashMap<String,Object>();
         String layout = "templates/layout.hbs";
 
@@ -18,6 +21,14 @@ public class App {
             return new ModelAndView(model, "homepage.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //display details form
+        get("/details-form", (request, response)->{
+            Map<String, Object> model=new HashMap<>();
+            return new ModelAndView(model, "details-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //process details-form
         get("/details",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             String flightNumber=request.queryParams("flightNumber");
@@ -26,10 +37,11 @@ public class App {
             Integer containerNumber=Integer.parseInt(request.queryParams("containerNumber"));
             ShippingDetails shipDetails = new ShippingDetails(flightNumber,arrivalTime,customDuty,containerNumber);
             model.put("shipDetails",shipDetails);
-            return new ModelAndView(model, "details-view.hbs");
+            return new ModelAndView(model, "details-form.hbs");
         }, new HandlebarsTemplateEngine());
 
 
+        //display details
         post("/details/new",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             String flightNumber=request.queryParams("flightNumber");
