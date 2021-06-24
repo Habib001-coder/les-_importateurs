@@ -25,7 +25,7 @@ public class  App {
             return new ModelAndView(model,"goods-views");
         },new HandlebarsTemplateEngine());
 
-        post("GoodsDetails/",(request, response) -> {
+        post("/create/goods/new",(request, response) -> {
             Map<String,Object> model=new HashMap<String, Object>();
             String name=request.queryParams("name");
             String serial=request.queryParams("serial");
