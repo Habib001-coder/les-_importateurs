@@ -1,66 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{#block "title"}}Importateurs{{/block}}</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/app.css">
-    <script src="/js/jquery.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <title>{{#block "title" }}Les Importateurs{{/block}}</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/" id="viewDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        View
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/view/rangers">Ranger</a>
-                        <a class="dropdown-item" href="/view/animals">Animal</a>
-                        <a class="dropdown-item" href="/view/locations">Location</a>
-                        <a class="dropdown-item" href="/view/sightings">Sighting</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/" id="createDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Create
-                    </a>
-{{!--                     <div class="dropdown-menu" aria-labelledby="navbarDropdown"> --}}
-{{!--                         <a class="dropdown-item" href="/create/ranger">Home</a> --}}
-{{!--                         <a class="dropdown-item" href="/create/animal">Animal</a> --}}
-{{!--                         <a class="dropdown-item" href="/create/location">Location</a> --}}
-{{!--                         <a class="dropdown-item" href="/create/sighting">Sighting</a> --}}
-{{!--                     </div> --}}
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!--begin main template-->
-
-    <div class="main-content">
-        {{#block "content"}}
-        {{/block}}
+<nav>
+    <div id="nav">
+        <a class="btn" href="/">Home</a>
+        <a class="btn" href="/logs-form">LogIn</a>
+        <a class="btn" href="/goods/new">Goods Details</a>
+        <a class="btn" href="/details">Shipment Details</a>
+        <a class="btn" href="/reviews-forms">Reviews</a>
 
     </div>
-
+</nav>
+<!--begin main template-->
+<div class="container">
+    {{#block "content" }}
+    {{/block }}
+</div>
 <!--end main template-->
-{{#block "footer"}}
+{{#block "footer" }}
     </body>
     </html>
-{{/block}}
+{{/block }}
+
+
+
+
+
+
