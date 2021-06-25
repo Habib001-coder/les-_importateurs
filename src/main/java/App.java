@@ -1,6 +1,7 @@
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +25,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //display details form
-        get("/details-form", (request, response)->{
+        get("/details-forms", (request, response)->{
             Map<String, Object> model=new HashMap<>();
             return new ModelAndView(model, "details-forms.hbs");
         }, new HandlebarsTemplateEngine());
@@ -40,6 +41,10 @@ public class App {
         //display details
         post("/details/new",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
+            String flightNumber=request.queryParams("flightNumber");
+            Integer ArrivalTime=Integer.parseInt(request.queryParams("ArrivalTime"));
+            Integer customDuty=Integer.parseInt(request.queryParams("customDuty"));
+            Integer containerNumber=Integer.parseInt(request.queryParams("containerNumber"));
             return new ModelAndView(model, "details-views.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -68,11 +73,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-
-
-
-
-        get("/logs-form", (request, response)->{
+        get("/logs-forms", (request, response)->{
             Map<String, Object> model=new HashMap<>();
             return new ModelAndView(model, "logs-forms.hbs");
         }, new HandlebarsTemplateEngine());
@@ -87,12 +88,9 @@ public class App {
 
             LoginPage login = new LoginPage(name,email,phone, homeAddress , password);
           //  login.save();
-            return new ModelAndView(model,"logs-form.hbs");
+            model.put("login",login);
+            return new ModelAndView(model,"success.hbs");
         },new HandlebarsTemplateEngine());
-
-
-
-
 
 
         get("/goods/new",(request, response) -> {
@@ -100,15 +98,16 @@ public class App {
             return new ModelAndView(model,"goods-forms.hbs");
         },new HandlebarsTemplateEngine());
 
-        post("/create/goods/new",(request, response) -> {
+        post("/goods-forms",(request, response) -> {
             Map<String,Object> model=new HashMap<String, Object>();
             String name=request.queryParams("name");
             String serial=request.queryParams("serial");
             String quantity=request.queryParams("quantity");
             String origin=request.queryParams("origin");
             GoodsDetails goodsDetails=new GoodsDetails(name, serial,quantity,origin);
-//            ranger.save();
-            return new ModelAndView(model,"goods-forms.hbs");
+//            goodsDetails.save();
+            model.put("goodDetails",goodsDetails);
+            return new ModelAndView(model,"details-forms.hbs");
         },new HandlebarsTemplateEngine());
 
     }
