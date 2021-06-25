@@ -1,3 +1,5 @@
+package models;
+
 public class ShippingDetails {
     private String flightNumber;
     private int arrivalTime;

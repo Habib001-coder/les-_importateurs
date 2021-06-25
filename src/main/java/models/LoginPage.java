@@ -1,3 +1,5 @@
+package models;
+
 public class LoginPage {
 
     private String name ;

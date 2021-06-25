@@ -1,6 +1,9 @@
+import models.GoodsDetails;
+import models.LoginPage;
+import models.Reviews;
+import models.ShippingDetails;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,15 +40,27 @@ public class App {
             return new ModelAndView(model, "details-forms.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/details/new",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            String flightNumber=request.queryParams("flightNumber");
+            int arrivalTime=Integer.parseInt(request.queryParams("ArrivalTime"));
+            int customDuty=Integer.parseInt(request.queryParams("customDuty"));
+            int containerNumber=Integer.parseInt(request.queryParams("containerNumber"));
+            ShippingDetails newShipment=new ShippingDetails(flightNumber,arrivalTime,customDuty,containerNumber);
+            return new ModelAndView(model, "details-views.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
         //display details
         post("/details/new",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             String flightNumber=request.queryParams("flightNumber");
-            Integer ArrivalTime=Integer.parseInt(request.queryParams("ArrivalTime"));
-            Integer customDuty=Integer.parseInt(request.queryParams("customDuty"));
-            Integer containerNumber=Integer.parseInt(request.queryParams("containerNumber"));
-            return new ModelAndView(model, "details-views.hbs");
+            int arrivalTime=Integer.parseInt(request.queryParams("ArrivalTime"));
+            int customDuty=Integer.parseInt(request.queryParams("customDuty"));
+            int containerNumber=Integer.parseInt(request.queryParams("containerNumber"));
+            ShippingDetails newShipment=new ShippingDetails(flightNumber,arrivalTime,customDuty,containerNumber);
+            model.put("newShipment",newShipment);
+            return new ModelAndView(model, "details-forms.hbs");
         }, new HandlebarsTemplateEngine());
 
         //display reviews form
@@ -96,6 +111,18 @@ public class App {
         get("/goods/new",(request, response) -> {
             Map<String,Object> model=new HashMap<String, Object>();
             return new ModelAndView(model,"goods-forms.hbs");
+        },new HandlebarsTemplateEngine());
+
+        get("/goods-forms",(request, response) -> {
+            Map<String,Object> model=new HashMap<String, Object>();
+            String name=request.queryParams("name");
+            String serial=request.queryParams("serial");
+            String quantity=request.queryParams("quantity");
+            String origin=request.queryParams("origin");
+            GoodsDetails goodsDetails=new GoodsDetails(name, serial,quantity,origin);
+//            goodsDetails.save();
+            model.put("goodDetails",goodsDetails);
+            return new ModelAndView(model,"details-views.hbs");
         },new HandlebarsTemplateEngine());
 
         post("/goods-forms",(request, response) -> {

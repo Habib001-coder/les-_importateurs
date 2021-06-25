@@ -1,3 +1,5 @@
+package models;
+
 public class GoodsDetails {
     private  String name;
     private  String serial;

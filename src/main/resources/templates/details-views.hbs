@@ -2,6 +2,15 @@
     <div class="container">
         <h1>View your Order Details Here!!</h1>
         <div class="oder">
+            <h3>GOODS DETAILS</h3>
+            {{#each goodsDetails}}
+                <p><strong>Name:{{name}}</strong></p>
+                <p><strong>Serial:{{serial}}</strong></p>
+                <p><strong>Quantity:{{quantity}}</strong></p>
+                <p><strong>Origin:{{origin}}</strong></p>
+                {{/each}}
+
+            <h3>SHIPPING DETAILS</h3>
             {{#each shippingDetails}}
                    <p><strong>Flight-Number: {{flightNumber}}</strong></p>
                    <p><strong>Arrival-Time: {{arrivalTime}}</strong></p>
